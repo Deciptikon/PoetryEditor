@@ -9,6 +9,25 @@
   <body>
     <div class="container">
       <div class="editor"></div>
+      <div class="sidebar">
+        <button id="saveButton">Сохранить иллюстрацию</button>
+
+        <label for="uploadImage">Выберите изображение:</label>
+        <input type="file" id="uploadImage" accept="image/*" />
+
+        <label for="colorBackgroundSelect">Цвет фона:</label>
+        <input type="color" id="colorBackgroundSelect" value="#ffffff" />
+
+        <label for="fontSelect">Выберите шрифт:</label>
+        <select id="fontSelect">
+          <option value="Arial">Arial</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Courier New">Courier New</option>
+        </select>
+
+        <label for="colorFontSelect">Цвет текста:</label>
+        <input type="color" id="colorFontSelect" value="#ffffff" />
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="script.js"></script>
