@@ -12,6 +12,7 @@ document.getElementById("uploadImage").addEventListener("change", function (e) {
   }
 });
 
+// Изменение шрифта текста
 document.getElementById("fontSelect").addEventListener("change", function () {
   const selectedFont = this.value;
   document.getElementById("poemTitle").style.fontFamily = selectedFont;
@@ -19,13 +20,24 @@ document.getElementById("fontSelect").addEventListener("change", function () {
   document.getElementById("authorText").style.fontFamily = selectedFont;
 });
 
+// Изменение цвета текста
+document.getElementById("colorSelect").addEventListener("input", function () {
+  const selectedColor = this.value;
+  document.getElementById("poemTitle").style.color = selectedColor;
+  document.getElementById("poemText").style.color = selectedColor;
+  document.getElementById("authorText").style.color = selectedColor;
+});
+
+// Сохранение иллюстрации
 document.getElementById("saveButton").addEventListener("click", function () {
   const illustration = document.querySelector(".illustration");
 
-  html2canvas(illustration).then((canvas) => {
-    const link = document.createElement("a");
-    link.download = "illustration.png";
-    link.href = canvas.toDataURL("image/png");
-    link.click();
-  });
+  html2canvas(illustration, { allowTaint: true, useCORS: true }).then(
+    (canvas) => {
+      const link = document.createElement("a");
+      link.download = "illustration.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+  );
 });

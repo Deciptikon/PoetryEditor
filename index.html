@@ -13,6 +13,8 @@
         <div class="illustration">
           <div class="illustration-header">
             <img id="backgroundImage" alt="Выберите изображение" />
+            <!-- Блюр поверх изображения -->
+            <div class="gradient-blur"></div>
             <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
           </div>
           <div class="illustration-body">
@@ -40,8 +42,11 @@
           <option value="Times New Roman">Times New Roman</option>
           <option value="Courier New">Courier New</option>
         </select>
+        <label for="colorSelect">Цвет текста:</label>
+        <input type="color" id="colorSelect" value="#ffffff" />
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
