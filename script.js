@@ -1,3 +1,6 @@
+const max_height_image = 300; // Высота для привязки
+const text_left_margin = 10; // Отступ текста от левой стороны
+
 document.getElementById("uploadImage").addEventListener("change", function (e) {
   const file = e.target.files[0];
   const reader = new FileReader();
@@ -23,7 +26,6 @@ document.getElementById("fontSelect").addEventListener("change", function () {
 // Исправление изменения цвета текста
 document.getElementById("colorSelect").addEventListener("input", function () {
   const selectedColor = this.value;
-  // Прямое изменение свойства стиля цвета
   document
     .getElementById("poemTitle")
     .style.setProperty("color", selectedColor, "important");
@@ -58,7 +60,7 @@ let scrollTop;
 backgroundImage.addEventListener("mousedown", (e) => {
   isDragging = true;
   startY = e.clientY;
-  scrollTop = backgroundImage.offsetTop; // Положение картинки относительно верхней границы
+  scrollTop = backgroundImage.offsetTop;
 });
 
 document.addEventListener("mouseup", () => {
@@ -69,7 +71,25 @@ document.addEventListener("mousemove", (e) => {
   if (isDragging) {
     const deltaY = e.clientY - startY;
     const newTop = scrollTop + deltaY;
-    backgroundImage.style.position = "relative"; // Убедимся, что картинка может двигаться
+    backgroundImage.style.position = "relative";
     backgroundImage.style.top = `${newTop}px`;
   }
 });
+
+// Привязка названия стиха и основного текста к высоте
+const poemTitle = document.getElementById("poemTitle");
+const poemText = document.getElementById("poemText");
+const authorText = document.getElementById("authorText");
+
+// Функция для обновления позиции названия стиха
+const updateTitlePosition = () => {
+  const titleHeight = poemTitle.offsetHeight;
+  if (titleHeight > max_height_image) {
+    poemTitle.style.bottom = `${max_height_image}px`;
+  } else {
+    poemTitle.style.bottom = `${max_height_image + 10}px`;
+  }
+};
+
+// Слушатель событий для изменения текста в названии
+poemTitle.addEventListener("input", updateTitlePosition);

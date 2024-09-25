@@ -7,26 +7,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script>
-      const max_height_image = 300; // Константа для отступа
-    </script>
     <div class="container">
       <div class="editor">
         <input type="file" id="uploadImage" accept="image/*" />
         <div class="illustration">
-          <div class="illustration-background">
-            <img
-              id="backgroundImage"
-              src="images/image_poetry.png"
-              alt="Выберите изображение"
-            />
-          </div>
-          <div class="color-rectangle"></div>
-          <!-- Новый слой -->
+          <div class="illustration-background"></div>
+          <img
+            id="backgroundImage"
+            src="images/image_poetry.png"
+            alt="Выберите изображение"
+          />
+          <div class="rectangle"></div>
           <div class="gradient-blur"></div>
-          <div class="illustration-header">
-            <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
-          </div>
+          <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
           <div class="illustration-body">
             <p contenteditable="true" id="poemText">
               Мир по прежнему только катится,<br />
@@ -42,7 +35,6 @@
               Мрачные стихи (Бычков Дмитрий)
             </p>
           </div>
-          <div class="illustration-border"></div>
         </div>
       </div>
       <div class="sidebar">
