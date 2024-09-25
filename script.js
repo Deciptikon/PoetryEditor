@@ -23,9 +23,16 @@ document.getElementById("fontSelect").addEventListener("change", function () {
 // Исправление изменения цвета текста
 document.getElementById("colorSelect").addEventListener("input", function () {
   const selectedColor = this.value;
-  document.getElementById("poemTitle").style.color = selectedColor;
-  document.getElementById("poemText").style.color = selectedColor;
-  document.getElementById("authorText").style.color = selectedColor;
+  // Прямое изменение свойства стиля цвета
+  document
+    .getElementById("poemTitle")
+    .style.setProperty("color", selectedColor, "important");
+  document
+    .getElementById("poemText")
+    .style.setProperty("color", selectedColor, "important");
+  document
+    .getElementById("authorText")
+    .style.setProperty("color", selectedColor, "important");
 });
 
 // Сохранение иллюстрации
@@ -40,4 +47,29 @@ document.getElementById("saveButton").addEventListener("click", function () {
       link.click();
     }
   );
+});
+
+// Интерактивное перемещение изображения вверх и вниз
+const backgroundImage = document.getElementById("backgroundImage");
+let isDragging = false;
+let startY;
+let scrollTop;
+
+backgroundImage.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  startY = e.clientY;
+  scrollTop = backgroundImage.offsetTop; // Положение картинки относительно верхней границы
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    const deltaY = e.clientY - startY;
+    const newTop = scrollTop + deltaY;
+    backgroundImage.style.position = "relative"; // Убедимся, что картинка может двигаться
+    backgroundImage.style.top = `${newTop}px`;
+  }
 });
