@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illustration {
+  width: 600px;
+  background-color: #222;
+  color: white;
+  position: relative;
+  border: 5px solid #555;
+  margin-top: 20px;
+}
+
+.illustration-header {
+  position: relative;
+}
+
+.illustration img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.illustration h1 {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  margin: 0;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.illustration-body {
+  padding: 20px;
+}
+
+.illustration p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.illustration-footer {
+  padding: 10px 20px;
+  background-color: #333;
+}
+
+.sidebar {
+  width: 200px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#uploadImage {
+  margin-bottom: 20px;
+}
+
+#saveButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#saveButton:hover {
+  background-color: #0056b3;
+}
+
+#fontSelect {
+  margin-top: 20px;
+  padding: 5px;
+}
