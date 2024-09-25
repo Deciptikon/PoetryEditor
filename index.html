@@ -12,8 +12,13 @@
         <input type="file" id="uploadImage" accept="image/*" />
         <div class="illustration">
           <div class="illustration-header">
-            <img id="backgroundImage" alt="Выберите изображение" />
-            <!-- Блюр поверх изображения -->
+            <!-- По умолчанию выбираем заглушку -->
+            <img
+              id="backgroundImage"
+              src="images/image_poetry.png"
+              alt="Выберите изображение"
+            />
+            <!-- Градиентный блюр -->
             <div class="gradient-blur"></div>
             <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
           </div>

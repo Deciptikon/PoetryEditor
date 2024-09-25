@@ -20,7 +20,7 @@ document.getElementById("fontSelect").addEventListener("change", function () {
   document.getElementById("authorText").style.fontFamily = selectedFont;
 });
 
-// Изменение цвета текста
+// Исправление изменения цвета текста
 document.getElementById("colorSelect").addEventListener("input", function () {
   const selectedColor = this.value;
   document.getElementById("poemTitle").style.color = selectedColor;
