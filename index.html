@@ -1,53 +1,14 @@
-<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Иллюстрации стихов</title>
     <link rel="stylesheet" href="style.css" />
+    <style type="text/css" id="operaUserStyle"></style>
   </head>
   <body>
     <div class="container">
-      <div class="editor">
-        <input type="file" id="uploadImage" accept="image/*" />
-        <div class="illustration">
-          <div class="illustration-background"></div>
-          <img
-            id="backgroundImage"
-            src="images/image_poetry.png"
-            alt="Выберите изображение"
-          />
-          <div class="rectangle"></div>
-          <div class="gradient-blur"></div>
-          <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
-          <div class="illustration-body">
-            <p contenteditable="true" id="poemText">
-              Мир по прежнему только катится,<br />
-              Преднамеренно или нет,<br />
-              Скоро Рим,<br />
-              третий,<br />
-              каменный,<br />
-              Сто отбросит теней.
-            </p>
-          </div>
-          <div class="illustration-footer">
-            <p contenteditable="true" id="authorText">
-              Мрачные стихи (Бычков Дмитрий)
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="sidebar">
-        <button id="saveButton">Сохранить иллюстрацию</button>
-        <label for="fontSelect">Выберите шрифт:</label>
-        <select id="fontSelect">
-          <option value="Arial">Arial</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Courier New">Courier New</option>
-        </select>
-        <label for="colorSelect">Цвет текста:</label>
-        <input type="color" id="colorSelect" value="#ffffff" />
-      </div>
+      <div class="editor"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
     <script src="script.js"></script>
