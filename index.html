@@ -7,19 +7,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <script>
+      const max_height_image = 300; // Константа для отступа
+    </script>
     <div class="container">
       <div class="editor">
         <input type="file" id="uploadImage" accept="image/*" />
         <div class="illustration">
-          <div class="illustration-header">
-            <!-- По умолчанию выбираем заглушку -->
+          <div class="illustration-background">
             <img
               id="backgroundImage"
               src="images/image_poetry.png"
               alt="Выберите изображение"
             />
-            <!-- Градиентный блюр -->
-            <div class="gradient-blur"></div>
+          </div>
+          <div class="color-rectangle"></div>
+          <!-- Новый слой -->
+          <div class="gradient-blur"></div>
+          <div class="illustration-header">
             <h1 contenteditable="true" id="poemTitle">Град деревень</h1>
           </div>
           <div class="illustration-body">
@@ -37,6 +42,7 @@
               Мрачные стихи (Бычков Дмитрий)
             </p>
           </div>
+          <div class="illustration-border"></div>
         </div>
       </div>
       <div class="sidebar">

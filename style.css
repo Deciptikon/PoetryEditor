@@ -23,57 +23,71 @@ body {
 
 .illustration {
   width: 600px;
-  background-color: #222;
-  color: white;
   position: relative;
-  border: 5px solid #555;
   margin-top: 20px;
   overflow: hidden;
+  border-radius: 10px; /* Скруглённые углы */
 }
 
-.illustration-header {
+.illustration-background {
   position: relative;
-  height: 300px;
+  height: calc(var(--max-height-image) + 20px); /* Подгоняем высоту */
 }
 
 .illustration img {
   width: 100%;
   object-fit: cover;
-  cursor: grab; /* Показываем пользователю, что изображение можно двигать */
+  cursor: grab;
 }
 
 .illustration img:active {
   cursor: grabbing;
 }
 
+.color-rectangle {
+  position: absolute;
+  top: var(--max-height-image); /* Используем константу */
+  left: 0;
+  right: 0;
+  height: calc(
+    100% - var(--max-height-image)
+  ); /* Высота на всю оставшуюся часть иллюстрации */
+  background-color: #f4f4f9; /* Цвет фона (можно изменить на другой) */
+  z-index: 1; /* Между изображением и блюром */
+}
+
 .gradient-blur {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    transparent,
-    rgba(34, 34, 34, 0.8),
-    #222
+    rgba(34, 34, 34, 0) 0%,
+    /* Почти невидимо */ rgba(34, 34, 34, 0.8) var(--max-height-image),
+    /* Максимум на max_height_image */ #222 100%
   );
   backdrop-filter: blur(8px);
+  z-index: 2; /* Установим выше цветного прямоугольника */
 }
 
-.illustration h1 {
+.illustration-header {
   position: absolute;
   top: 10px;
   left: 20px;
+  z-index: 3; /* Выше всех других элементов */
+}
+
+.illustration h1 {
   margin: 0;
   font-size: 36px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  z-index: 2;
 }
 
 .illustration-body {
   padding: 20px;
-  z-index: 2;
+  z-index: 3; /* Выше всех других элементов */
   position: relative;
 }
 
@@ -86,7 +100,19 @@ body {
 .illustration-footer {
   padding: 10px 20px;
   background-color: #333;
-  z-index: 2;
+  z-index: 3; /* Выше всех других элементов */
+}
+
+.illustration-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid white; /* Белая рамка */
+  border-radius: 10px; /* Скруглённые углы */
+  pointer-events: none; /* Чтобы рамка не мешала взаимодействию с элементами */
+  z-index: 4; /* Сверху всех других слоёв */
 }
 
 .sidebar {
